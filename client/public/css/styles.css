@@ -1,0 +1,54 @@
+body {
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.blog-post {
+  color: black;
+  background-color: plum;
+  padding: 10px;
+}
+
+.blog-post .blog-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.blog-post .blog-content {
+  font-size: 16px;
+}
+
+.blog-published-date, .blog-updated-date {
+  font-size: 16px;
+  color: darkslategrey;
+}
+
+.blog-post-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: auto;
+}
+
+/* Flexing */
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.gap-10 {
+  gap: 10px;
+}
+
+.gap-8 {
+  gap: 8px;
+}
+
+.gap-4 {
+  gap: 4px;
+}

@@ -4,14 +4,14 @@ const path = require("path");
 const cors = require("cors");
 
 const app = express();
-const indexRoute = require("./routes/index-route.js");
+const postRoute = require("./routes/post-route.js");
 
 require("dotenv").config();
 
 app.use(cors()); 
-app.use(express.json()); // Middleware to parse JSON bodies
+app.use(express.json());
 
-app.use("/api/posts", indexRoute); // API route
+app.use("/api/posts", postRoute);
 
 
-app.listen(process.env.PORT, () => console.log(`Server running on port ${process.env.PORT}`));
+app.listen(process.env.PORT, () => console.log(`Server running at http://localhost:${process.env.PORT}`));
