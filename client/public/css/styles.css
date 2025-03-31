@@ -27,7 +27,35 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  overflow: auto;
+}
+
+/* Raw Margin */
+.mb-10 {
+  margin-bottom: 10px;
+}
+.my-10{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.me-20{
+  margin-right: 20px;
+}
+.me-8{
+  margin-right: 8px;
+}
+
+/* Text */
+.text-center {
+  text-align: center;
+}
+.text-darkslategrey {
+  color: darkslategrey;
+}
+.text-white {
+  color: white;
+}
+.text-black {
+  color: black;
 }
 
 /* Flexing */
@@ -40,6 +68,36 @@ body {
   display: flex;
   flex-direction: row;
 }
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
 
 .gap-10 {
   gap: 10px;
