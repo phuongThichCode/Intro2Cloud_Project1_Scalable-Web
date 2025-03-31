@@ -8,12 +8,7 @@ const indexRoute = require("./routes/index-route.js");
 
 require("dotenv").config();
 
-var corsOptions = {
-    // origin: process.env.URL,
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
-
-app.use(cors(corsOptions)); 
+app.use(cors()); 
 app.use(express.json()); // Middleware to parse JSON bodies
 
 app.use("/api/posts", indexRoute); // API route
