@@ -33,6 +33,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding: 40px 20px 20px 20px;
 }
 
 .blog-title-edit {
@@ -75,6 +76,26 @@ button:hover{
 .search-button:hover {
 }
 
+/* Background colors */
+.bg-white{
+  background-color: white;
+}
+
+.bg-whitesmoke{
+  background-color: whitesmoke;
+}
+
+.opacity-50{
+  opacity: 0.5;
+}
+
+/* Position */
+.sticky {
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
 /* Raw Margin */
 .mb-10 {
   margin-bottom: 10px;
@@ -94,6 +115,14 @@ button:hover{
   margin-bottom: 0px;
 }
 
+/* Raw padding */
+.p-10 {
+  padding: 10px;
+}
+.py-10 {
+  padding: 10px;
+}
+
 a {
   color: darkslategrey
 }
@@ -101,6 +130,11 @@ a {
 a:hover{
   color: slateblue;
   cursor: pointer
+}
+
+.box{
+  padding: 10px;
+  border: 1px solid darkslategrey;
 }
 
 /* Text */

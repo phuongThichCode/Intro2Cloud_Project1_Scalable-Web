@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const queryDataTest = require("./config/db.js");
 
 const cors = require("cors");
 
@@ -14,3 +15,12 @@ app.use(express.json());
 app.use("/api/posts", postRoute);
 
 app.listen(process.env.PORT, () => console.log(`Server running at http://localhost:${process.env.PORT}`));
+
+console.log("testing db ...");
+try{
+  queryDataTest().then(_ => {
+    console.log("Test db successfully.");
+  });
+} catch(err){
+  console.error("Error testing db: ", err.message || err);
+}

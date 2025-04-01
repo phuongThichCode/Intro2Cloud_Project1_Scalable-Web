@@ -34,7 +34,13 @@ function loadData(posts) {
     posts.forEach((post, index) => {
         const clone = template.content.cloneNode(true);
         clone.querySelector(".blog-title").textContent = post.title;
-        clone.querySelector(".blog-content").textContent = post.content;
+        clone.querySelector(".blog-title").setAttribute('href', './post.html?id=' + post.id);
+        const max_length = 300;
+        if (post.content.length > max_length){
+            clone.querySelector(".blog-content").textContent = post.content.substring(0, max_length) + "...";
+        } else {
+            clone.querySelector(".blog-content").textContent = post.content;
+        }
 
         const published_date = clone.querySelector(".blog-published-date");
         published_date.textContent = Intl.DateTimeFormat("en-US", { dateStyle: "full", timeStyle: "short" }).format(new Date(post.published_date));

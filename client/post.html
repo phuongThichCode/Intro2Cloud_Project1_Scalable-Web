@@ -4,29 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blogs</title>
-    <script src="public/javascripts/index.js" defer></script>
+    <script src="public/javascripts/post.js" defer></script>
     <link rel="stylesheet" href="public/css/styles.css">
 </head>
 <body>
     <template id ="blog-post-template">
-        <div class="blog-post">
+        <div id="main-blog-post" class="blog-post">
             <div class="flex-row space-between align-center">
-                <a class="blog-title my-10" href="/">Blog Post Title</a>
+                <h2 id="main-blog-title" class="blog-title my-10" href="/">Blog Post Title</h2>
                 <a class="blog-edit-link" href="/">Edit</a>
             </div>
-            <p class="blog-content">This is the content of the blog post</p>
+            <p id="main-blog-content" class="blog-content box bg-whitesmoke">This is the content of the blog post</p>
             <div>
-                <span>Published: <time datetime="2023-01-01" class="blog-published-date">January 1, 2023</time></span>
+                <span>Published: <time datetime="2023-01-01" id="main-blog-published-date" class="blog-published-date">January 1, 2023</time></span>
                 <br>
-                <span>Updated: <time datetime="2023-01-02" class="blog-updated-date">January 2, 2023</time></span>
+                <span>Updated: <time datetime="2023-01-02" id="main-blog-updated-date" class="blog-updated-date">January 2, 2023</time></span>
             </div>
         </div>
     </template>
-    <h1 class="text-center">Welcome to my personal blog!</h1>
-    <div class="flex-row justify-end mb-10">
-        <span class="me-8">My name: </span><span class="text-darkslategrey me-20">Minh Phuong Phuc</span>
-        <span class="me-8">Email: </span><span class="text-darkslategrey">22120271@student.hcmus.edu.vn</span>
-    </div>
     <nav class="bg-white py-10 flex-row justify-end align-center mb-10 sticky">
         <input type="text" id="search-input" placeholder="Search for blog posts" class="search-input me-8" size="30">
         <button>Search</button>
