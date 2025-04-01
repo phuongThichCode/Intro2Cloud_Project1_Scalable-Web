@@ -1,9 +1,10 @@
 const server_url = "http://localhost:3001/api/posts";
+
 const post_color_pallete = [
-    "#ff99cc",
-    "#99ccff",
+    "#ffccff",
+    "#cce6ff",
     "#ccffcc",
-    "#cccccc",
+    "#d1d1e0",
     "#ffffcc"
 ]
 
@@ -30,7 +31,7 @@ function loadData(posts) {
     const template = document.querySelector('#blog-post-template');
     const container = document.querySelector('#main-container');
 
-    posts.forEach(post => {
+    posts.forEach((post, index) => {
         const clone = template.content.cloneNode(true);
         clone.querySelector(".blog-title").textContent = post.title;
         clone.querySelector(".blog-content").textContent = post.content;
@@ -39,14 +40,14 @@ function loadData(posts) {
         published_date.textContent = Intl.DateTimeFormat("en-US", { dateStyle: "full", timeStyle: "short" }).format(new Date(post.published_date));
         published_date.setAttribute("datetime", post.published_date);
 
-        const rand = Math.random();
-        const color = post_color_pallete[Math.floor(rand * post_color_pallete.length)];
-        console.log(Math.floor(rand * post_color_pallete.length), color);
+        const color = post_color_pallete[index % post_color_pallete.length];
         clone.querySelector(".blog-post").style.backgroundColor = color;
 
         const updated_date = clone.querySelector(".blog-updated-date");
         updated_date.textContent = Intl.DateTimeFormat("en-US", { dateStyle: "full", timeStyle: "short" }).format(new Date(post.updated_date));
         updated_date.setAttribute("datetime", post.updated_date);
+        
+        clone.querySelector(".blog-edit-link").setAttribute('href', `./edit.html?id=${post.id}`);
 
         container.appendChild(clone);
     });

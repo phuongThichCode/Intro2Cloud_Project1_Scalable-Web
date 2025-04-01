@@ -29,6 +29,52 @@ body {
   gap: 10px;
 }
 
+.blog-edit-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.blog-title-edit {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.blog-content-edit {
+  padding: 8px;
+}
+
+input {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+text {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.search-input {
+  padding: 4px;
+  font-size: 16px;
+}
+
+button {
+  background-color: darkcyan;
+  border: 1px solid darkblue;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  padding: 4px 8px;
+}
+
+button:hover{
+  background-color: darkslategrey;
+}
+
+.search-button {
+}
+
+.search-button:hover {
+}
+
 /* Raw Margin */
 .mb-10 {
   margin-bottom: 10px;
@@ -42,6 +88,19 @@ body {
 }
 .me-8{
   margin-right: 8px;
+}
+.my-0{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+a {
+  color: darkslategrey
+}
+
+a:hover{
+  color: slateblue;
+  cursor: pointer
 }
 
 /* Text */
@@ -98,6 +157,9 @@ body {
   align-items: flex-end;
 }
 
+.space-between{
+  justify-content: space-between;
+}
 
 .gap-10 {
   gap: 10px;

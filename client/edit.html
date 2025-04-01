@@ -4,21 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blogs</title>
-    <script src="public/javascripts/index.js" defer></script>
+    <script src="public/javascripts/edit.js" defer></script>
     <link rel="stylesheet" href="public/css/styles.css">
 </head>
 <body>
     <template id ="blog-post-template">
-        <div class="blog-post">
+        <div class="blog-post blog-edit-container">
             <div class="flex-row space-between">
-                <h2 class="blog-title my-10">Blog Post Title</h2>
-                <a class="blog-edit-link" href="/">Edit</a>
+                <input class="blog-title-edit" type="text" size="20">
             </div>
-            <p class="blog-content">This is the content of the blog post</p>
-            <div>
-                <span>Published: <time datetime="2023-01-01" class="blog-published-date">January 1, 2023</time></span>
-                <br>
-                <span>Updated: <time datetime="2023-01-02" class="blog-updated-date">January 2, 2023</time></span>
+            <textarea class="blog-content-edit" rows="10">This is the content of the blog post</textarea>
+            <span>Published: <time datetime="2023-01-01" class="blog-published-date">January 1, 2023</time></span>
+            <div class="flex-row justify-end gap-10">
+                <button>
+                    Save
+                </button>
+                <button onclick="onCancelButtonClicked()">
+                    Cancel
+                </button>
             </div>
         </div>
     </template>
