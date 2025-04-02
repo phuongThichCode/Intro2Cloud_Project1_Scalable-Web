@@ -4,6 +4,8 @@ const router = express.Router();
 
 router.get("/:id", postController.getPost);
 
+router.get("/search", postController.searchPosts);
+
 router.get("/", postController.getAllPosts);
 
 router.put("/:id", postController.updatePost);

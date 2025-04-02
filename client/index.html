@@ -32,10 +32,10 @@
             <a href="./index.html">Home</a>
             <a href="./add.html">Write a post</a>
         </div>
-        <div class="flex-row">
+        <form onsubmit="searchAndLoadData(event)" class="flex-row">
             <input type="text" id="search-input" placeholder="Search for blog posts" class="search-input me-8" size="30">
-            <button>Search</button>
-        </div>
+            <button type="submit">Search</button>
+        </form>
     </nav>
 
     <div id="main-container" class="blog-post-container">

@@ -17,6 +17,32 @@ async function getAllPosts(req, res){
   }
 }
 
+async function searchPosts(req, res){
+  
+
+  try{
+    const query = req.query;
+    const searchTerm = query.value || "";
+    console.log("aaa");
+    console.log("Search query: ", searchTerm);
+    if (!searchTerm || searchTerm.length === 0){
+      return getAllPosts(req, res);
+    }
+
+    const result = await dynamoDBDocClient.send(
+      new ScanCommand({
+        TableName: "blogs",
+        FilterExpression: `contains(title, ${searchTerm}) OR contains(content, ${searchTerm})`,
+      })
+    );
+    res.status(200).json({ok: false, data: result.Items, error: ""});
+    
+  } catch(err){
+    console.error("Error get all posts: ", err.message || err);
+    res.status(500).json({ok: false, data: null, error: err.message || err});
+  }
+}
+
 async function getPost(req, res) {
   try{
     if (!('id' in req.params) || !req.params.id){
@@ -152,6 +178,7 @@ async function deletePost(req, res){
 
 module.exports = {
   getAllPosts,
+  searchPosts,
   getPost,
   updatePost,
   addPost,

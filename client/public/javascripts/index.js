@@ -16,10 +16,9 @@ function hashStringToColorIndex(str, maxColors) {
     return hash;
 }
 
-fetchData().then(data => {
-    loadData(data);
-})
-
+// fetchData().then(data => {
+//     loadData(data);
+// })
 
 async function fetchData() {
     try {
@@ -69,3 +68,63 @@ function loadData(posts) {
         container.appendChild(clone);
     });
 }
+
+async function searchData(query) {
+    if (!query || query.length === 0) {
+        return fetchData();
+    }
+
+    const urlQuery = new URLSearchParams({
+        value: query
+    });
+
+
+    const url = server_url + "/search";
+    console.log("searchData url: ", url);
+    try {
+        const response = await fetch(`${url}?${urlQuery.toString()}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        if (response.ok){
+            const result = await response.json();
+            if ('data' in result){
+                return result.data;
+            }
+            throw new Error("Couldn't find data field from response");
+        }
+        throw new Error(`${response.status} ${response.statusText}`);
+    } catch (err) {
+        console.error("Error fetching data: ", err.message || err);
+        return null;
+    }
+}
+
+function clearContainer() {
+    const container = document.querySelector('#main-container');
+    container.innerHTML = ""; // Clear the container
+}
+
+async function searchAndLoadData(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    let query = form.children[0].value;
+    if (!query || query.length === 0) {
+        query = "";
+    }
+
+    searchData(query).then(data => {
+        clearContainer();
+        loadData(data);
+    });
+}
+
+(async function getAndLoadData() {
+    fetchData().then(data => {
+        clearContainer();
+        loadData(data);
+    });
+})();
