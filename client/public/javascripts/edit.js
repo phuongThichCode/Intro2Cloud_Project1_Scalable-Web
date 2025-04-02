@@ -39,6 +39,10 @@ function loadData(post) {
     published_date.textContent = Intl.DateTimeFormat("en-US", { dateStyle: "full", timeStyle: "short" }).format(new Date(post.published_date));
     published_date.setAttribute("datetime", post.published_date);
 
+    const updated_date = clone.querySelector(".blog-updated-date");
+    updated_date.textContent = Intl.DateTimeFormat("en-US", { dateStyle: "full", timeStyle: "short" }).format(new Date(post.updated_date));
+    updated_date.setAttribute("datetime", post.updated_date);    
+
     container.appendChild(clone);
 }
 

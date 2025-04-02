@@ -48,6 +48,7 @@ async function updatePost(req, res){
     }
     const post_id = req.params.id;
     const { title, content } = req.body;
+    const currentDate = new Date().toISOString();
 
     if (!title && !content) {
       throw Error("Missing fields to update: title or content");
@@ -65,6 +66,9 @@ async function updatePost(req, res){
       updateExpression.push("content = :content");
       expressionAttributeValues[":content"] = content;
     }
+
+    updateExpression.push("updated_date = :updated_date");
+    expressionAttributeValues[":updated_date"] = currentDate;
 
     const result = await dynamoDBDocClient.send(
       new UpdateCommand({

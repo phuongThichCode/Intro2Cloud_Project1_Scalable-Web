@@ -46,7 +46,7 @@ function loadData(posts) {
         const clone = template.content.cloneNode(true);
         clone.querySelector(".blog-title").textContent = post.title;
         clone.querySelector(".blog-title").setAttribute('href', `./post.html?id=${post.post_id}`);
-        const max_length = 300;
+        const max_length = 100;
         if (post.content.length > max_length){
             clone.querySelector(".blog-content").textContent = post.content.substring(0, max_length) + "...";
         } else {
