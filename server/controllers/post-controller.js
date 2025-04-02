@@ -18,12 +18,11 @@ async function getAllPosts(req, res){
 }
 
 async function searchPosts(req, res){
-  
+  console.log("searchPosts called");
 
   try{
     const query = req.query;
     const searchTerm = query.value || "";
-    console.log("aaa");
     console.log("Search query: ", searchTerm);
     if (!searchTerm || searchTerm.length === 0){
       return getAllPosts(req, res);
@@ -32,7 +31,10 @@ async function searchPosts(req, res){
     const result = await dynamoDBDocClient.send(
       new ScanCommand({
         TableName: "blogs",
-        FilterExpression: `contains(title, ${searchTerm}) OR contains(content, ${searchTerm})`,
+        FilterExpression: "contains(title, :searchTerm) OR contains(content, :searchTerm)",
+        ExpressionAttributeValues: {
+          ":searchTerm": searchTerm
+        },
       })
     );
     res.status(200).json({ok: false, data: result.Items, error: ""});

@@ -33,3 +33,10 @@ async function onPostSubmitted(event){
 function onCancelButtonClicked(){
     window.location.href = `./index.html`;
 }
+
+function onSearchSubmit(event) {
+    event.preventDefault();
+    const query = document.querySelector("#search-input").value;
+    // redirect to home page with search query
+    window.location.href = `./index.html?value=${query}`;
+}

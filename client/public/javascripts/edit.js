@@ -102,3 +102,10 @@ async function onDeleteButtonClicked(){
         console.error("Error deleting data: ", err.message || err);
     }
 }
+
+function onSearchSubmit(event) {
+    event.preventDefault();
+    const query = document.querySelector("#search-input").value;
+    // redirect to home page with search query
+    window.location.href = `./index.html?value=${query}`;
+}

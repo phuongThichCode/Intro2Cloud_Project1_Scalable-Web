@@ -82,6 +82,7 @@ async function searchData(query) {
     const url = server_url + "/search";
     console.log("searchData url: ", url);
     try {
+        // why does this not reach the server?
         const response = await fetch(`${url}?${urlQuery.toString()}`, {
             method: "GET",
             headers: {
@@ -107,14 +108,12 @@ function clearContainer() {
     container.innerHTML = ""; // Clear the container
 }
 
-async function searchAndLoadData(event) {
+async function onSearchSubmit(event) {
     event.preventDefault();
 
     const form = event.target;
-    let query = form.children[0].value;
-    if (!query || query.length === 0) {
-        query = "";
-    }
+    const query = form.children[0].value || "";
+
 
     searchData(query).then(data => {
         clearContainer();
@@ -122,8 +121,17 @@ async function searchAndLoadData(event) {
     });
 }
 
-(async function getAndLoadData() {
+async function getAndLoadData() {
     fetchData().then(data => {
+        clearContainer();
+        loadData(data);
+    });
+};
+
+(async function init() {
+    const params = new URLSearchParams(window.location.search);
+    const searchValue = params.get("value") || "";
+    searchData(searchValue).then(data => {
         clearContainer();
         loadData(data);
     });
