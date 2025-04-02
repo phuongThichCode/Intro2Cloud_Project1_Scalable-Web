@@ -15,12 +15,3 @@ app.use(express.json());
 app.use("/api/posts", postRoute);
 
 app.listen(process.env.PORT, () => console.log(`Server running at http://localhost:${process.env.PORT}`));
-
-console.log("testing db ...");
-try{
-  queryDataTest().then(_ => {
-    console.log("Test db successfully.");
-  });
-} catch(err){
-  console.error("Error testing db: ", err.message || err);
-}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <script src="public/javascripts/add.js" defer></script>
+    <link rel="stylesheet" href="public/css/styles.css">
+</head>
+<body>
+    <nav class="bg-white py-10 flex-row justify-end align-center mb-10 sticky space-between">
+        <div class="flex-row gap-20">
+            <a href="./index.html">Home</a>
+            <a href="./add.html">Write a post</a>
+        </div>
+        <div class="flex-row">
+            <input type="text" id="search-input" placeholder="Search for blog posts" class="search-input me-8" size="30">
+            <button>Search</button>
+        </div>
+    </nav>
+    <div id="main-container" class="blog-post-container">
+        <form class="blog-post blog-edit-container" onsubmit="onPostSubmitted(event)">
+            <div class="flex-row align-center gap-8">
+                <label for="blog-title-edit">Title:</label>
+                <input id="blog-title-edit" class="blog-title-edit" type="text" size="20"  placeholder="Title for post">
+            </div>
+            <div class="flex-column gap-10">
+                <label for="blog-content-edit">Content:</label>
+                <textarea id="blog-content-edit" class="blog-content-edit" rows="10" placeholder="The content of your post goes here..."></textarea>
+            </div>
+            <div class="flex-row justify-end gap-10">
+                <button type="submit">
+                    Publish
+                </button>
+                <button type="button" onclick="onCancelButtonClicked()">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

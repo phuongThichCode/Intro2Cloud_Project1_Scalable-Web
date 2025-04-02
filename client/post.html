@@ -22,9 +22,15 @@
             </div>
         </div>
     </template>
-    <nav class="bg-white py-10 flex-row justify-end align-center mb-10 sticky">
-        <input type="text" id="search-input" placeholder="Search for blog posts" class="search-input me-8" size="30">
-        <button>Search</button>
+    <nav class="bg-white py-10 flex-row justify-end align-center mb-10 sticky space-between">
+        <div class="flex-row gap-20">
+            <a href="./index.html">Home</a>
+            <a href="./add.html">Write a post</a>
+        </div>
+        <div class="flex-row">
+            <input type="text" id="search-input" placeholder="Search for blog posts" class="search-input me-8" size="30">
+            <button>Search</button>
+        </div>
     </nav>
     <div id="main-container" class="blog-post-container">
     </div>

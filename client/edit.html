@@ -9,25 +9,41 @@
 </head>
 <body>
     <template id ="blog-post-template">
-        <div class="blog-post blog-edit-container">
-            <div class="flex-row space-between">
-                <input class="blog-title-edit" type="text" size="20">
+        <form class="blog-post blog-edit-container" onsubmit="onEditSubmitted(event)">
+            <div class="flex-row align-center gap-8">
+                <label for="blog-title-edit">Title:</label>
+                <input id="blog-title-edit" class="blog-title-edit" type="text" size="20">
             </div>
-            <textarea class="blog-content-edit" rows="10">This is the content of the blog post</textarea>
-            <span>Published: <time datetime="2023-01-01" class="blog-published-date">January 1, 2023</time></span>
+            <div class="flex-column gap-10">
+                <label for="blog-content-edit">Content:</label>
+                <textarea id="blog-content-edit" class="blog-content-edit" rows="10">This is the content of the blog post</textarea>
+            </div>
+            <div>
+                <label for="blog-published-date">Published:</label>
+                <time id="blog-published-date" datetime="2023-01-01" class="blog-published-date">January 1, 2023</time>
+            </div>
             <div class="flex-row justify-end gap-10">
-                <button>
+                <button type="submit">
                     Save
                 </button>
-                <button onclick="onCancelButtonClicked()">
+                <button type="button" onclick="onCancelButtonClicked()">
                     Cancel
                 </button>
+                <button type="button" onclick="onDeleteButtonClicked()">
+                    Send this to the void
+                </button>
             </div>
-        </div>
+        </form>
     </template>
-    <nav class="bg-white py-10 flex-row justify-end align-center mb-10 sticky">
-        <input type="text" id="search-input" placeholder="Search for blog posts" class="search-input me-8" size="30">
-        <button>Search</button>
+    <nav class="bg-white py-10 flex-row justify-end align-center mb-10 sticky space-between">
+        <div class="flex-row gap-20">
+            <a href="./index.html">Home</a>
+            <a href="./add.html">Write a post</a>
+        </div>
+        <div class="flex-row">
+            <input type="text" id="search-input" placeholder="Search for blog posts" class="search-input me-8" size="30">
+            <button>Search</button>
+        </div>
     </nav>
     <div id="main-container" class="blog-post-container">
     </div>

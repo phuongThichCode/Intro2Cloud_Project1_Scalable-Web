@@ -12,7 +12,7 @@
         <div class="blog-post">
             <div class="flex-row space-between align-center">
                 <a class="blog-title my-10" href="/">Blog Post Title</a>
-                <a class="blog-edit-link" href="/">Edit</a>
+                <a class="blog-edit-link display-none" href="/">Edit</a>
             </div>
             <p class="blog-content">This is the content of the blog post</p>
             <div>
@@ -27,10 +27,17 @@
         <span class="me-8">My name: </span><span class="text-darkslategrey me-20">Minh Phuong Phuc</span>
         <span class="me-8">Email: </span><span class="text-darkslategrey">22120271@student.hcmus.edu.vn</span>
     </div>
-    <nav class="bg-white py-10 flex-row justify-end align-center mb-10 sticky">
-        <input type="text" id="search-input" placeholder="Search for blog posts" class="search-input me-8" size="30">
-        <button>Search</button>
+    <nav class="bg-white py-10 flex-row justify-end align-center mb-10 sticky space-between">
+        <div class="flex-row gap-20">
+            <a href="./index.html">Home</a>
+            <a href="./add.html">Write a post</a>
+        </div>
+        <div class="flex-row">
+            <input type="text" id="search-input" placeholder="Search for blog posts" class="search-input me-8" size="30">
+            <button>Search</button>
+        </div>
     </nav>
+
     <div id="main-container" class="blog-post-container">
     </div>
 </body>
