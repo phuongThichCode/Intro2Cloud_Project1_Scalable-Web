@@ -23,17 +23,17 @@
         </div>
     </template>
     <h1 class="text-center">Welcome to my personal blog!</h1>
-    <div class="flex-row justify-end mb-10">
+    <div class="flex-row justify-end mb-10 row-to-column">
         <span class="me-8">My name: </span><span class="text-darkslategrey me-20">Minh Phuong Phuc</span>
         <span class="me-8">Email: </span><span class="text-darkslategrey">22120271@student.hcmus.edu.vn</span>
     </div>
-    <nav class="bg-white py-10 flex-row justify-end align-center mb-10 sticky space-between">
+    <nav class="bg-white py-10 flex-row justify-end align-center mb-10 sticky space-between row-to-column-reverse">
         <div class="flex-row gap-20">
             <a href="./index.html">Home</a>
             <a href="./add.html">Write a post</a>
         </div>
-        <form onsubmit="onSearchSubmit(event)" class="flex-row">
-            <input type="text" id="search-input" placeholder="Search for blog posts" class="search-input me-8" size="30">
+        <form onsubmit="onSearchSubmit(event)" class="flex-row header_search_bar">
+            <input type="text" id="search-input" placeholder="Search for blog posts" class="search-input me-8 header_search_bar" size="30">
             <button type="submit">Search</button>
         </form>
     </nav>

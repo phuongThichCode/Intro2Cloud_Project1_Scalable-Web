@@ -3,6 +3,25 @@ body {
   font-family: 'Courier New', Courier, monospace;
 }
 
+@media only screen and (max-width: 600px) {
+  .row-to-column-reverse {
+    flex-direction: column-reverse !important;
+    align-items: first baseline !important;
+    gap: 4px !important;
+  }
+
+  .row-to-column {
+    flex-direction: column !important;
+    align-items: first baseline !important;
+    gap: 4px !important;
+  }
+
+  .header_search_bar {
+    width: 100% !important;
+  }
+}
+
+
 .blog-post {
   color: black;
   background-color: #e9e9e9;
